@@ -95,3 +95,16 @@ conclusion of phase 3: phase 3 is completed right now.
         git add. 
         git commit -m "phase 3 completed" 
         git push 
+
+Phase 4: this phase includes the creation of MCP-SERVER where all the possible actions are listed that the AI can perform.
+        mcp-sdk provides the following:
+        1]MCP Host
+        2]MCP Client
+        3]Tool definitions
+        4]Schema validation
+        5]Secure tool invocation
+
+        I am also using axios -> Axios is a JavaScript library used to make HTTP requests. That means it helps your app talk to other servers.
+
+        axios is used for sending http request to flask backend.
+        
