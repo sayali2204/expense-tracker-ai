@@ -118,6 +118,19 @@ def update_expense(id):
     finally:
         conn.close()
 
+# -------------------------------
+# ENDPOINT for Cluade 
+# -------------------------------
+@app.route("/ai-command", methods=["POST"])
+def ai_command():
+    data = request.json
+    message = data.get("message")
+
+    print("AI Command:", message)
+
+    return jsonify({"status": "sent"})
+
+
 
 # -------------------------------
 # APP ENTRY POINT

@@ -1,0 +1,13 @@
+body {
+  font-family: Arial;
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+#chat input {
+  width: 300px;
+  padding: 8px;
+}

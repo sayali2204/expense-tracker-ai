@@ -210,4 +210,22 @@ Phase 5: connecting cluade desktop to MCP and the Flask backend.
         Note: though the phase is complete and actions are being performed but there is some issue with the display of id.
         I will resolve that later on.
 
+Phase 6:Integrating the UI Component
+        
+        User (UI)
+        ↓
+        Flask Backend
+        ↓
+        MCP Server
+        ↓
+        Claude (LLM)
+
+        Claude (decision + tool call)
+        ↓
+        MCP Server
+        ↓
+        Flask Backend
+        ↓
+        UI
+
         
