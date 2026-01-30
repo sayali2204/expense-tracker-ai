@@ -1,15 +1,20 @@
 {
   "name": "mcp_server",
   "version": "1.0.0",
-  "description": "",
+  "description": "MCP server for AI-powered expense tracker",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "node --watch index.js"
   },
-  "keywords": [],
+  "keywords": [
+    "mcp",
+    "ai",
+    "expense-tracker"
+  ],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.25.3",
     "axios": "^1.13.4"
