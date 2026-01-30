@@ -107,4 +107,107 @@ Phase 4: this phase includes the creation of MCP-SERVER where all the possible a
         I am also using axios -> Axios is a JavaScript library used to make HTTP requests. That means it helps your app talk to other servers.
 
         axios is used for sending http request to flask backend.
+
+        expenses.js file:
+        this file will include the tools that the ai can access; this will include methods such as add_expense, update_expense, delete_expense , get_expenses.
+
+        export const expensetools -> this is a constant container named expensetools here we are using export cause macp server will import this particular variable 
+
+        this will be the tentative flow of the application:
+        User text
+        ↓
+        AI decides tool = "add_expense"
+        ↓
+        MCP finds tool in expenseTools
+        ↓
+        Calls handler(input)
+        ↓
+        Axios → Flask backend
+        ↓
+        Flask → SQLite
+        ↓
+        Response → AI → User
+
+        async handler(input) {
+        const res = await axios.post(`${BASE_URL}/expenses`, input);
+        return res.data; -> this is the main handler which will call the flask backend and then the flask connects with the  db and then send back the data to the handler
+        which then is given back to the ai to humanise it.
+        here input contains the input data provided by the user.
+
+        const { id, ...updateData } = input -> this in the update_expense tool means “Take id out of the object,and put everything else into a new object called updateData.”
+
+        Note: this marks the completion of the expenses.js file 
+
+        now we will create the server:
+        User (natural language)
+        ↓
+        AI (LLM)
+        ↓ decides tool
+        MCP Host
+        ↓
+        Your MCP Server (this file)
+        ↓
+        Tool handler (Axios)
+        ↓
+        Flask backend
+        ↓
+        SQLite database
+        ↓
+        Response → AI → User
+
+        this is the flow when the mcp server is included, this code starts an MCP server that exposes expense-related tools to an AI and forwards tool calls to a Flask backend using Axios.
+
+        we are importing the server class from the mcp-sdk, expense_tools array from the expenses.js file and stdiosServerTransport for transport purposes so that ai can talk with the server.
+
+        AI
+        ↓ (MCP message)
+        Stdio Transport
+        ↓
+        MCP Server (Server class)
+        ↓ calls handler()
+        Axios HTTP request
+        ↓
+        Flask backend
+        ↓
+        SQLite
+        ↓
+        Flask response
+        ↓
+        Axios response
+        ↓
+        Handler return
+        ↓
+        MCP response
+        ↓
+        AI
+
+
+        Note: this marks the end of the index.js file
+
+        here the phase 4 completes; both the backend and the mcp server are running.
+
+Phase 5: connecting cluade desktop to MCP and the Flask backend.
+
+        User (text)
+        ↓
+        Claude Desktop (LLM)
+        ↓
+        MCP Client (inside Claude)
+        ↓
+        MCP Server (your Node.js server)
+        ↓
+        Flask API (Python)
+        ↓
+        SQLite Database
+        ↓
+        Response flows back the same way
+        ↓
+        UI updates
+
+        Went to settings->developer->edit config ; then added a small piece of code for my mcp server index.js file
+        then the cluade desktop was able to connect with the server.
+
+        Note: though the phase is complete and actions are being performed but there is some issue with the display of id.
+        I will resolve that later on.
+
         
